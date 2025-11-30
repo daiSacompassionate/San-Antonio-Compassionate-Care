@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE } from '../lib/api';
 
-const API = 'http://localhost:5000/api/replied/inquiries';
+const API = `${API_BASE}/api/replied/inquiries`;
 
 const formatDate = (d) => {
     const date = new Date(d);
@@ -74,7 +75,7 @@ const RepliedInquiriesList = () => {
     }, []);
 
     return (
-        <div className="max-w-7xl mx-auto animate-fade-in">
+        <div className="max-w-7xl mx-auto animate-fade-in px-4 sm:px-6 lg:px-8">
             {/* Header */}
             <div className="relative bg-linear-to-br from-indigo-50 via-blue-50 to-cyan-50 rounded-3xl shadow-xl border border-indigo-100 p-8 mb-8 overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-200/30 rounded-full -mr-32 -mt-32 blur-3xl"></div>
@@ -125,7 +126,7 @@ const RepliedInquiriesList = () => {
 
             {/* Replied Inquiries List */}
             {!loading && !error && inquiries.length === 0 && (
-                <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-3xl shadow-lg border border-gray-200 p-16 text-center">
+                <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-3xl shadow-lg border border-gray-200 p-8 sm:p-16 text-center">
                     <div className="inline-block bg-indigo-100 rounded-full p-6 mb-6">
                         <div className="text-7xl">✅</div>
                     </div>
@@ -134,12 +135,12 @@ const RepliedInquiriesList = () => {
                 </div>
             )}
 
-            {!loading && !error && inquiries.length > 0 && (
+                    {!loading && !error && inquiries.length > 0 && (
                 <div className="grid gap-6">
                     {inquiries.map((i, index) => (
                         <div
                             key={i.id}
-                            className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
+                                className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
                             style={{ animationDelay: `${index * 50}ms` }}
                         >
                             <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-indigo-500 to-blue-500"></div>

@@ -23,25 +23,37 @@ const DashboardContent = () => {
                 logout={logout}
             />
 
-            <div className="flex-1 p-6 ml-0 transition-all duration-300">
+            <div className="flex-1 p-4 sm:p-6 ml-0 sm:ml-64 transition-all duration-300">
+                {/* Mobile top bar to toggle sidebar */}
+                <div className="flex items-center justify-between mb-4 sm:hidden">
+                    <button
+                        className="p-2 rounded-lg bg-white shadow-sm"
+                        onClick={() => setSidebarOpen(!sidebarOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        ☰
+                    </button>
+                    <div className="text-lg font-semibold">Admin Dashboard</div>
+                    <div style={{width:32}} />
+                </div>
 
                 {/* -------------------- DASHBOARD VIEW -------------------- */}
                 {activeView === 'dashboard' && (
                     <div className="max-w-7xl mx-auto animate-fade-in">
                         {/* Welcome Section */}
-                        <div className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 rounded-3xl p-10 text-white shadow-2xl mb-8 overflow-hidden">
+                        <div className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 rounded-3xl p-6 sm:p-10 text-white shadow-2xl mb-6 sm:mb-8 overflow-hidden">
                             <div className="absolute inset-0 bg-black/10"></div>
                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
                             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                                 <div className="flex-1">
-                                    <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-4">
+                                    <div className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm font-medium mb-3">
                                         👋 Welcome Back
                                     </div>
-                                    <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+                                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
                                         {admin.username}
                                     </h1>
-                                    <p className="text-blue-50 text-lg md:text-xl max-w-2xl leading-relaxed mb-6">
+                                    <p className="text-blue-50 text-sm sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-4 sm:mb-6">
                                         Manage inquiries and tours efficiently. Everything you need is available here.
                                     </p>
                                 </div>
@@ -49,7 +61,7 @@ const DashboardContent = () => {
                         </div>
 
                         {/* Logo Section */}
-                        <div className="relative bg-gradient-to-br from-sky-200 via-blue-100 to-cyan-100 rounded-3xl p-8 md:p-12 shadow-2xl border border-blue-200 mb-8 overflow-hidden">
+                        <div className="relative bg-gradient-to-br from-sky-200 via-blue-100 to-cyan-100 rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl border border-blue-200 mb-6 sm:mb-8 overflow-hidden">
                             {/* Cloud-like gradients */}
                             <div className="absolute top-0 left-0 w-full h-full opacity-30">
                                 <div className="absolute top-10 left-10 w-64 h-32 bg-white/40 rounded-full blur-3xl"></div>
@@ -87,7 +99,7 @@ const DashboardContent = () => {
                         </div>
 
                         {/* San Antonio Compassionate Care Description */}
-                        <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 rounded-3xl p-8 md:p-10 shadow-xl border border-amber-100 mb-8 hover:shadow-2xl transition-shadow duration-300">
+                        <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl border border-amber-100 mb-6 sm:mb-8 hover:shadow-2xl transition-shadow duration-300">
                             <div className="flex items-start gap-4">
                                 <div className="flex-1">
                                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
@@ -101,16 +113,16 @@ const DashboardContent = () => {
                         </div>
 
                         {/* Quick Actions */}
-                        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-lg border border-gray-100">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
                                 <h3 className="text-2xl font-bold text-gray-900">Quick Actions</h3>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                                 <button
                                     onClick={() => setActiveView('inquiries')}
-                                    className="group relative bg-linear-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                                    className="group relative bg-linear-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                                     <span className="text-2xl relative z-10">📩</span>
@@ -119,7 +131,7 @@ const DashboardContent = () => {
 
                                 <button
                                     onClick={() => setActiveView('tourlist')}
-                                    className="group relative bg-linear-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                                    className="group relative bg-linear-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                                     <span className="text-2xl relative z-10">🧭</span>
@@ -128,7 +140,7 @@ const DashboardContent = () => {
 
                                 <button
                                     onClick={() => setActiveView('repliedInquiries')}
-                                    className="group relative bg-linear-to-br from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                                    className="group relative bg-linear-to-br from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                                     <span className="text-2xl relative z-10">✓</span>
@@ -137,7 +149,7 @@ const DashboardContent = () => {
 
                                 <button
                                     onClick={() => setActiveView('repliedTours')}
-                                    className="group relative bg-linear-to-br from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+                                    className="group relative bg-linear-to-br from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                                     <span className="text-2xl relative z-10">✓</span>

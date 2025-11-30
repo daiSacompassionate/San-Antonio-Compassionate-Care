@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
+import { API_BASE } from '../lib/api';
 
-const API = 'http://localhost:5000/api/admin';
+const API = `${API_BASE}/api/admin`;
 
 const Login = () => {
     const { login } = useAdmin();

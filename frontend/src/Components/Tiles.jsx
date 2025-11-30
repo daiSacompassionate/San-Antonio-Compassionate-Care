@@ -82,17 +82,17 @@ const Tiles = () => {
 
     const TileCard = ({ service }) => (
         <div
-            className="mx-4 inline-flex items-end justify-center w-[280px] h-[200px] sm:w-[320px] sm:h-[220px] lg:w-[360px] lg:h-[240px] rounded-3xl shadow-2xl border border-white/30 overflow-hidden relative bg-cover bg-center"
+            className="mx-2 xs:mx-3 sm:mx-4 inline-flex items-end justify-center w-60 xs:w-[270px] sm:w-[300px] md:w-80 lg:w-96 h-40 xs:h-44 sm:h-52 md:h-56 lg:h-60 rounded-2xl xs:rounded-2xl sm:rounded-3xl shadow-2xl border border-white/30 overflow-hidden relative bg-cover bg-center"
             style={{
                 backgroundImage: `linear-gradient(160deg, rgba(15,23,42,0.7), rgba(15,23,42,0.25)), url(${service.image})`,
             }}
         >
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
-            <div className="relative z-10 w-full px-5 py-6 text-left text-white space-y-2">
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
+            <div className="relative z-10 w-full px-4 xs:px-5 py-4 xs:py-6 text-left text-white space-y-1 xs:space-y-2">
                 <p className="text-xs uppercase tracking-[0.4em] text-white/70">{service.tag}</p>
-                <h3 className="text-xl font-serif font-semibold leading-tight">{service.title}</h3>
+                <h3 className="text-lg xs:text-xl font-serif font-semibold leading-tight">{service.title}</h3>
                 {service.caption && (
-                    <p className="text-sm text-white/80 leading-relaxed line-clamp-2">
+                    <p className="text-xs xs:text-sm text-white/80 leading-relaxed line-clamp-2">
                         {service.caption}
                     </p>
                 )}
@@ -101,14 +101,14 @@ const Tiles = () => {
     );
 
     return (
-        <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-gray-50 flex flex-col justify-center py-16">
+        <div className="w-full min-h-screen bg-linear-to-br from-blue-50 to-gray-50 flex flex-col justify-center py-12 xs:py-14 sm:py-16 md:py-20">
 
             {/* Main Heading */}
-            <div className="text-center px-4 mb-12">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-4">
+            <div className="text-center px-3 xs:px-4 sm:px-6 mb-8 xs:mb-10 sm:mb-12">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-3 xs:mb-4">
                     What We Offer
                 </h1>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-2">
                     Everyone's needs are different, which is why we focus on tailoring care to each individual. From assistance with daily routines to engaging social activities, San Antonio Compassinate care provides the right balance of independence and support.
                 </p>
             </div>
@@ -132,10 +132,10 @@ const Tiles = () => {
             </ScrollVelocityContainer>
 
             {/* Indicator */}
-            <div className="text-center mt-8">
-                <div className="inline-flex items-center space-x-3 text-gray-600 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-gray-200">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">
+            <div className="text-center mt-6 xs:mt-8 md:mt-8">
+                <div className="inline-flex items-center space-x-2 xs:space-x-3 text-gray-600 bg-white/80 backdrop-blur-sm px-4 xs:px-6 py-2 xs:py-3 rounded-full border border-gray-200">
+                    <div className="w-2 xs:w-3 h-2 xs:h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs xs:text-sm font-medium">
                         Exploring our comprehensive services
                     </span>
                 </div>

@@ -3,7 +3,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@theme {
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.145 0 0);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.145 0 0);
+  --color-primary: oklch(0.205 0 0);
+  --color-primary-foreground: oklch(0.985 0 0);
+  --color-secondary: oklch(0.97 0 0);
+  --color-secondary-foreground: oklch(0.205 0 0);
+  --color-muted: oklch(0.97 0 0);
+  --color-muted-foreground: oklch(0.556 0 0);
+  --color-accent: oklch(0.97 0 0);
+  --color-accent-foreground: oklch(0.205 0 0);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-border: oklch(0.922 0 0);
+  --color-input: oklch(0.922 0 0);
+  --color-ring: oklch(0.708 0 0);
+  
+  --radius: 0.625rem;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-First Responsive Improvements */
+@media (max-width: 640px) {
+  /* Better touch targets on mobile */
+  button, a {
+    min-height: 2.75rem; /* 44px - Apple's recommended touch target */
+    min-width: 2.75rem;
+  }
+  
+  /* Improve text readability on mobile */
+  body {
+    font-size: 16px; /* Prevents zoom on iOS when tapping input fields */
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    @apply px-3 xs:px-4;
+  }
+  
+  /* Improve form inputs on mobile */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    @apply rounded-lg;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  button:hover, a:hover {
+    @apply transition-all duration-200;
+  }
+}
 
 .font-script {
   font-family: 'Dancing Script', cursive;
@@ -154,5 +264,44 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile-First Responsive Improvements */
+@media (max-width: 640px) {
+  /* Better touch targets on mobile */
+  button, a {
+    min-height: 2.75rem; /* 44px - Apple's recommended touch target */
+    min-width: 2.75rem;
+  }
+  
+  /* Improve text readability on mobile */
+  body {
+    font-size: 16px; /* Prevents zoom on iOS when tapping input fields */
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    @apply px-3 xs:px-4;
+  }
+  
+  /* Improve form inputs on mobile */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    @apply rounded-lg;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  button:hover, a:hover {
+    @apply transition-all duration-200;
   }
 }

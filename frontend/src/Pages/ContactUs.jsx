@@ -1,12 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
 import { useInquiryModal } from '../context/InquiryModalContext';
+import { API_BASE } from '../lib/api';
 
 const ContactUs = () => {
     const { openModal } = useInquiryModal();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+            const response = await fetch(`${API_BASE}/api/inquiries`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok || data.success || data.id) {
+                setSubmitMessage('✓ Thank you! We\'ll get back to you within 24 hours.');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                const errorMessage = data.message || data.error || 'Failed to send message';
+                setSubmitMessage(`✗ ${errorMessage}`);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitMessage('✗ Network error: Unable to connect to server');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     const contactInfo = [
         {
@@ -222,6 +269,10 @@ const ContactUs = () => {
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
                                         <input
                                             type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition-all outline-none bg-white"
                                             placeholder="Your full name"
                                         />
@@ -230,6 +281,10 @@ const ContactUs = () => {
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
                                         <input
                                             type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition-all outline-none bg-white"
                                             placeholder="your.email@example.com"
                                         />
@@ -238,6 +293,9 @@ const ContactUs = () => {
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
                                         <input
                                             type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
                                             className="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition-all outline-none bg-white"
                                             placeholder="(512) 555-1234"
                                         />
@@ -245,16 +303,26 @@ const ContactUs = () => {
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
                                         <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            required
                                             rows="4"
                                             className="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition-all outline-none resize-none bg-white"
                                             placeholder="How can we help you?"
                                         ></textarea>
                                     </div>
+                                    {submitMessage && (
+                                        <div className={`p-3 rounded-lg text-sm font-medium ${submitMessage.includes('✓') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                                            {submitMessage}
+                                        </div>
+                                    )}
                                     <button
-                                        onClick={openModal}
-                                        className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                                        onClick={handleSubmit}
+                                        disabled={isSubmitting}
+                                        className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        Send Message
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </button>
                                 </div>
                             </motion.div>

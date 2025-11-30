@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAdmin } from '../context/AdminContext';
+import { API_BASE } from '../lib/api';
 
-const API = 'http://localhost:5000/api/tours/gettour';
-const DELETE_API = 'http://localhost:5000/api/tours';
-const REPLIED_API = 'http://localhost:5000/api/replied/tours';
+const API = `${API_BASE}/api/tours/gettour`;
+const DELETE_API = `${API_BASE}/api/tours`;
+const REPLIED_API = `${API_BASE}/api/replied/tours`;
 
 const formatDate = (d) => {
     const date = new Date(d);
@@ -82,21 +83,24 @@ const TourList = () => {
 
     const handleMarkAsReplied = async (tour) => {
         try {
+            // normalize field names (accept snake_case from DB or camelCase from other sources)
+            const payload = {
+                name: tour.name,
+                email: tour.email,
+                phone: tour.phone,
+                preferred_date: tour.preferred_date || tour.preferredDate || null,
+                preferred_time: tour.preferred_time || tour.preferredTime || null,
+                number_of_guests: tour.number_of_guests || tour.numberOfGuests || null,
+                tour_type: tour.tour_type || tour.tourtype || tour.tourType || null,
+                special_requests: tour.special_requests || tour.specialRequests || null,
+                message: tour.message || null,
+                service: tour.service || null
+            };
+
             const res = await fetch(REPLIED_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: tour.name,
-                    email: tour.email,
-                    phone: tour.phone,
-                    preferred_date: tour.preferred_date,
-                    preferred_time: tour.preferred_time,
-                    number_of_guests: tour.number_of_guests,
-                    tour_type: tour.tourtype,
-                    special_requests: tour.special_requests,
-                    message: tour.message,
-                    service: tour.service
-                })
+                body: JSON.stringify(payload)
             });
 
             const data = await res.json();
@@ -137,8 +141,8 @@ const TourList = () => {
     );
 
     return (
-        <div className="max-w-7xl mx-auto animate-fade-in">
-            <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl shadow-xl border border-green-100 p-8 mb-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto animate-fade-in px-4 sm:px-6 lg:px-8">
+            <div className="relative bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-3xl shadow-xl border border-green-100 p-4 sm:p-8 mb-6 sm:mb-8 overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-green-200/30 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                     <div>
@@ -164,7 +168,7 @@ const TourList = () => {
             </div>
 
             {tours.length === 0 ? (
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-lg border border-gray-200 p-16 text-center">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-lg border border-gray-200 p-8 sm:p-16 text-center">
                     <div className="inline-block bg-green-100 rounded-full p-6 mb-6">
                         <div className="text-7xl">🚫</div>
                     </div>
@@ -176,7 +180,7 @@ const TourList = () => {
                     {tours.map((t, index) => (
                         <div
                             key={t.id}
-                            className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
+                            className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
                             style={{ animationDelay: `${index * 50}ms` }}
                         >
                             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-green-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -223,7 +227,7 @@ const TourList = () => {
                                 </div>
 
                                 {/* Buttons */}
-                                <div className="flex lg:flex-col gap-3 lg:items-end">
+                                <div className="flex flex-wrap lg:flex-col gap-3 lg:items-end">
                                     {/* Reply Button */}
                                     <button
                                         onClick={() => sendReply(t.email, t.name)}

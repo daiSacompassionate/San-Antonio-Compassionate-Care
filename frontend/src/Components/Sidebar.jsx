@@ -1,9 +1,32 @@
 import React from 'react';
 import { FaEnvelope, FaChartLine, FaSignOutAlt, FaMapMarkedAlt } from 'react-icons/fa';
 
-const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, logout }) => {
+const Sidebar = ({ isOpen = true, setOpen = () => {}, activeView, setActiveView, admin, logout }) => {
     return (
-        <aside className="w-64 bg-gradient-to-b from-gray-900 to-gray-800 text-white p-6 flex flex-col h-screen sticky top-0">
+        <>
+            {/* Mobile backdrop */}
+            <div
+                className={`fixed inset-0 bg-black/40 z-30 sm:hidden transition-opacity ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                onClick={() => setOpen(false)}
+                aria-hidden={!isOpen}
+            />
+
+            <aside
+                className={`fixed left-0 top-0 z-40 h-screen w-64 bg-gradient-to-b from-gray-900 to-gray-800 text-white p-6 flex flex-col transform transition-transform duration-200 overflow-y-auto
+                    ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+                    sm:translate-x-0`}
+                aria-hidden={!isOpen}
+            >
+
+                {/* Mobile close */}
+                <div className="sm:hidden flex items-center justify-between mb-4">
+                    <div>
+                        <h2 className="text-lg font-bold">San Antonio</h2>
+                    </div>
+                    <button onClick={() => setOpen(false)} className="p-2 rounded-md bg-white/10">
+                        ✕
+                    </button>
+                </div>
 
             {/* Logo Section */}
             <div className="mb-8">
@@ -30,7 +53,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
             <nav className="space-y-2 flex-1">
                 {/* Dashboard */}
                 <button
-                    onClick={() => setActiveView('dashboard')}
+                    onClick={() => { setActiveView('dashboard'); setOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${activeView === 'dashboard'
                             ? 'bg-blue-600 text-white shadow-lg'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -42,7 +65,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
 
                 {/* Inquiries */}
                 <button
-                    onClick={() => setActiveView('inquiries')}
+                    onClick={() => { setActiveView('inquiries'); setOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${activeView === 'inquiries'
                             ? 'bg-blue-600 text-white shadow-lg'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -54,7 +77,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
 
                 {/* 🚀 NEW — Tours */}
                 <button
-                    onClick={() => setActiveView('tourlist')}
+                    onClick={() => { setActiveView('tourlist'); setOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${activeView === 'tourlist'
                             ? 'bg-blue-600 text-white shadow-lg'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -66,7 +89,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
 
                 {/* Replied Inquiries */}
                 <button
-                    onClick={() => setActiveView('repliedInquiries')}
+                    onClick={() => { setActiveView('repliedInquiries'); setOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${activeView === 'repliedInquiries'
                             ? 'bg-blue-600 text-white shadow-lg'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -78,7 +101,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
 
                 {/* Replied Tours */}
                 <button
-                    onClick={() => setActiveView('repliedTours')}
+                    onClick={() => { setActiveView('repliedTours'); setOpen(false); }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${activeView === 'repliedTours'
                             ? 'bg-blue-600 text-white shadow-lg'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -100,6 +123,7 @@ const Sidebar = ({ isOpen = true, setOpen, activeView, setActiveView, admin, log
                 </button>
             </div>
         </aside>
+        </>
     );
 };
 

@@ -45,7 +45,7 @@ export default function InquiryForm({ isOpen, onClose }) {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const API_URL = import.meta.env.VITE_BACKEND_URL;
+        const API_URL = (import.meta.env.VITE_BACKEND_URL || '').trim() || 'http://localhost:5000';
 
         try {
             const response = await fetch(`${API_URL}/api/inquiries`, {
@@ -82,19 +82,19 @@ export default function InquiryForm({ isOpen, onClose }) {
 
     return (
         <div
-            className="fixed inset-0 flex items-center justify-center p-4 z-50 transition-opacity duration-300 overflow-hidden"
+            className="fixed inset-0 flex items-center justify-center p-2 xs:p-3 sm:p-4 z-50 transition-opacity duration-300 overflow-hidden"
             onClick={onClose}
             style={{ animation: 'fadeIn 0.3s ease-out' }}
         >
             {/* Beautiful Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-cyan-400/20 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-linear-to-br from-blue-400/20 via-purple-500/20 to-cyan-400/20 backdrop-blur-sm">
                 {/* Animated Floating Shapes */}
-                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-200/30 to-purple-300/30 rounded-full blur-xl animate-float-slow"></div>
-                <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-cyan-200/30 to-blue-300/30 rounded-full blur-xl animate-float-medium"></div>
-                <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-200/30 to-pink-300/30 rounded-full blur-xl animate-float-fast"></div>
+                <div className="absolute top-1/4 left-1/4 w-48 xs:w-60 sm:w-72 h-48 xs:h-60 sm:h-72 bg-linear-to-r from-blue-200/30 to-purple-300/30 rounded-full blur-xl animate-float-slow"></div>
+                <div className="absolute bottom-1/3 right-1/4 w-64 xs:w-80 sm:w-96 h-64 xs:h-80 sm:h-96 bg-linear-to-r from-cyan-200/30 to-blue-300/30 rounded-full blur-xl animate-float-medium"></div>
+                <div className="absolute top-1/3 right-1/3 w-48 xs:w-56 sm:w-64 h-48 xs:h-56 sm:h-64 bg-linear-to-r from-purple-200/30 to-pink-300/30 rounded-full blur-xl animate-float-fast"></div>
 
                 {/* Grid Pattern Overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
 
                 {/* Sparkle Effects */}
                 <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-white rounded-full animate-ping"></div>
@@ -104,7 +104,7 @@ export default function InquiryForm({ isOpen, onClose }) {
 
             {/* Main Modal Container */}
             <motion.div
-                className="relative bg-gradient-to-br from-white/95 via-blue-50/95 to-purple-50/95 rounded-3xl shadow-2xl w-full max-w-md transform transition-all duration-300 max-h-[90vh] overflow-hidden border border-white/50 backdrop-blur-xl custom-scrollbar"
+                className="relative bg-linear-to-br from-white/95 via-blue-50/95 to-purple-50/95 rounded-2xl xs:rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-md xs:max-w-sm transform transition-all duration-300 max-h-[95vh] xs:max-h-[90vh] overflow-hidden border border-white/50 backdrop-blur-xl custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -115,30 +115,30 @@ export default function InquiryForm({ isOpen, onClose }) {
                 }}
             >
                 {/* Decorative Top Border */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-t-3xl z-20"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-t-2xl xs:rounded-t-2xl sm:rounded-t-3xl z-20"></div>
 
                 {/* Header - Sticky */}
-                <div className="relative p-6 border-b border-blue-200/30 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-t-3xl backdrop-blur-sm sticky top-0 z-10">
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg">
-                                <FaEnvelope className="text-white" size={24} />
+                <div className="sticky top-0 z-10 p-4 xs:p-5 sm:p-6 border-b border-blue-200/30 bg-linear-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 rounded-t-2xl xs:rounded-t-2xl sm:rounded-t-3xl backdrop-blur-sm">
+                    <div className="flex justify-between items-start xs:items-center gap-2">
+                        <div className="flex items-center gap-2 xs:gap-3">
+                            <div className="p-1.5 xs:p-2 bg-linear-to-r from-blue-500 to-purple-500 rounded-lg xs:rounded-xl shadow-lg shrink-0">
+                                <FaEnvelope className="text-white text-base xs:text-lg" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                     Contact Us
                                 </h2>
-                                <p className="text-sm text-blue-600/70 font-medium">
+                                <p className="text-xs xs:text-sm text-blue-600/70 font-medium">
                                     We're here to help
                                 </p>
                             </div>
                         </div>
                         <button
                             onClick={onClose}
-                            className="p-2 hover:bg-white/20 rounded-xl transition-all duration-200 group"
+                            className="p-1.5 xs:p-2 hover:bg-white/20 rounded-lg xs:rounded-xl transition-all duration-200 group shrink-0"
                             aria-label="Close modal"
                         >
-                            <svg className="w-6 h-6 text-blue-600 group-hover:text-purple-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 xs:w-6 h-5 xs:h-6 text-blue-600 group-hover:text-purple-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -146,18 +146,18 @@ export default function InquiryForm({ isOpen, onClose }) {
                 </div>
 
                 {/* Scrollable Content Area */}
-                <div className="overflow-y-auto max-h-[calc(90vh-140px)] custom-scrollbar-content">
+                <div className="overflow-y-auto max-h-[calc(95vh-140px)] xs:max-h-[calc(90vh-140px)] custom-scrollbar-content">
                     {/* Form */}
-                    <form onSubmit={handleSubmit} className="p-6 space-y-5">
+                    <form onSubmit={handleSubmit} className="p-4 xs:p-5 sm:p-6 space-y-4 xs:space-y-5">
                         {/* Name Field */}
                         <motion.div
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.1 }}
                         >
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                                <div className="p-1.5 bg-blue-100 rounded-lg">
-                                    <FaUser className="text-blue-600" size={14} />
+                            <label htmlFor="name" className="flex text-xs xs:text-sm font-medium text-gray-700 mb-1.5 xs:mb-2 items-center gap-2">
+                                <div className="p-1 xs:p-1.5 bg-blue-100 rounded-lg">
+                                    <FaUser className="text-blue-600 text-xs xs:text-sm" />
                                 </div>
                                 Full Name *
                             </label>
@@ -169,7 +169,7 @@ export default function InquiryForm({ isOpen, onClose }) {
                                 placeholder="Enter your full name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-blue-200/50 bg-white/80 rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md"
+                                className="w-full px-3 xs:px-4 py-2 xs:py-3 border border-blue-200/50 bg-white/80 rounded-lg xs:rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md text-sm xs:text-base"
                             />
                         </motion.div>
 
@@ -179,9 +179,9 @@ export default function InquiryForm({ isOpen, onClose }) {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.15 }}
                         >
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                                <div className="p-1.5 bg-purple-100 rounded-lg">
-                                    <FaEnvelope className="text-purple-600" size={14} />
+                            <label htmlFor="email" className="flex text-xs xs:text-sm font-medium text-gray-700 mb-1.5 xs:mb-2 items-center gap-2">
+                                <div className="p-1 xs:p-1.5 bg-purple-100 rounded-lg">
+                                    <FaEnvelope className="text-purple-600 text-xs xs:text-sm" />
                                 </div>
                                 Email Address *
                             </label>
@@ -193,7 +193,7 @@ export default function InquiryForm({ isOpen, onClose }) {
                                 placeholder="Enter your email address"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-blue-200/50 bg-white/80 rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md"
+                                className="w-full px-3 xs:px-4 py-2 xs:py-3 border border-blue-200/50 bg-white/80 rounded-lg xs:rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md text-sm xs:text-base"
                             />
                         </motion.div>
 
@@ -203,9 +203,9 @@ export default function InquiryForm({ isOpen, onClose }) {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                                <div className="p-1.5 bg-cyan-100 rounded-lg">
-                                    <FaPhone className="text-cyan-600" size={14} />
+                            <label htmlFor="phone" className="flex text-xs xs:text-sm font-medium text-gray-700 mb-1.5 xs:mb-2 items-center gap-2">
+                                <div className="p-1 xs:p-1.5 bg-cyan-100 rounded-lg">
+                                    <FaPhone className="text-cyan-600 text-xs xs:text-sm" />
                                 </div>
                                 Phone Number
                             </label>
@@ -216,7 +216,7 @@ export default function InquiryForm({ isOpen, onClose }) {
                                 placeholder="Enter your phone number"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-blue-200/50 bg-white/80 rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md"
+                                className="w-full px-3 xs:px-4 py-2 xs:py-3 border border-blue-200/50 bg-white/80 rounded-lg xs:rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none backdrop-blur-sm shadow-sm hover:shadow-md text-sm xs:text-base"
                             />
                         </motion.div>
 
@@ -226,9 +226,9 @@ export default function InquiryForm({ isOpen, onClose }) {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.25 }}
                         >
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
-                                <div className="p-1.5 bg-green-100 rounded-lg">
-                                    <FaComment className="text-green-600" size={14} />
+                            <label htmlFor="message" className="flex text-xs xs:text-sm font-medium text-gray-700 mb-1.5 xs:mb-2 items-center gap-2">
+                                <div className="p-1 xs:p-1.5 bg-green-100 rounded-lg">
+                                    <FaComment className="text-green-600 text-xs xs:text-sm" />
                                 </div>
                                 Message *
                             </label>
@@ -240,7 +240,7 @@ export default function InquiryForm({ isOpen, onClose }) {
                                 placeholder="Tell us how we can help you..."
                                 value={formData.message}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-blue-200/50 bg-white/80 rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none resize-none backdrop-blur-sm shadow-sm hover:shadow-md"
+                                className="w-full px-3 xs:px-4 py-2 xs:py-3 border border-blue-200/50 bg-white/80 rounded-lg xs:rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-400 transition-all duration-200 outline-none resize-none backdrop-blur-sm shadow-sm hover:shadow-md text-sm xs:text-base"
                             />
                         </motion.div>
 
@@ -248,17 +248,17 @@ export default function InquiryForm({ isOpen, onClose }) {
                         <motion.button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] group relative overflow-hidden"
+                            className="w-full bg-linear-to-r from-blue-600 via-purple-600 to-cyan-600 text-white py-3 xs:py-4 px-4 xs:px-6 rounded-lg xs:rounded-xl font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] group relative overflow-hidden text-sm xs:text-base"
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
                         >
                             {/* Animated background shine */}
-                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000"></div>
+                            <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000"></div>
 
                             {isSubmitting ? (
                                 <div className="flex items-center justify-center relative z-10">
-                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <svg className="animate-spin -ml-1 mr-2 xs:mr-3 h-4 xs:h-5 w-4 xs:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
@@ -266,7 +266,7 @@ export default function InquiryForm({ isOpen, onClose }) {
                                 </div>
                             ) : (
                                 <div className="flex items-center justify-center gap-2 relative z-10">
-                                    <FaEnvelope />
+                                    <FaEnvelope className="text-sm xs:text-base" />
                                     Send Message
                                 </div>
                             )}
@@ -275,9 +275,9 @@ export default function InquiryForm({ isOpen, onClose }) {
                 </div>
 
                 {/* Footer - Sticky */}
-                <div className="px-6 py-4 bg-gradient-to-r from-blue-50/80 via-purple-50/80 to-cyan-50/80 rounded-b-3xl border-t border-blue-200/30 sticky bottom-0">
-                    <p className="text-sm text-blue-700/80 font-medium text-center flex items-center justify-center gap-2">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <div className="px-4 xs:px-5 sm:px-6 py-3 xs:py-4 bg-linear-to-r from-blue-50/80 via-purple-50/80 to-cyan-50/80 rounded-b-2xl xs:rounded-b-2xl sm:rounded-b-3xl border-t border-blue-200/30 sticky bottom-0">
+                    <p className="text-xs xs:text-sm text-blue-700/80 font-medium text-center flex items-center justify-center gap-2">
+                        <svg className="w-3 xs:w-4 h-3 xs:h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                         </svg>
                         We'll get back to you within 24 hours
