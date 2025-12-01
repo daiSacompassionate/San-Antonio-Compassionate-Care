@@ -217,6 +217,18 @@ const TourList = () => {
                                                     <span>📌</span> {t.service}
                                                 </span>
                                             </div>
+
+                                            {/* Special Requests Section */}
+                                            {t.special_requests && (
+                                                <div className="mt-4 bg-gradient-to-br from-amber-50 to-yellow-50 border-l-4 border-amber-500 rounded-lg p-4">
+                                                    <h4 className="text-sm font-bold text-amber-900 mb-2 flex items-center gap-2">
+                                                        <span>💬</span> Special Requests
+                                                    </h4>
+                                                    <p className="text-sm text-amber-800 leading-relaxed break-words">
+                                                        {t.special_requests}
+                                                    </p>
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="text-right">
                                             <div className="text-xs text-gray-500 bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-2 rounded-xl font-medium border border-gray-200">
