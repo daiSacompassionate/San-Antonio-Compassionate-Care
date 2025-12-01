@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { useInquiryModal } from '../context/InquiryModalContext';
 import { API_BASE } from '../lib/api';
 
@@ -60,9 +60,8 @@ const ContactUs = () => {
             icon: <FaMapMarkerAlt />,
             title: "Visit Us",
             details: [
-                "900 Ramble Creek Drive",
-                "Pflugerville, Texas 78660",
-                "United States"
+                "12030 Bandera Rd. Ste 110",
+                "Helotes, Texas 78023"
             ],
             color: "from-blue-500 to-blue-600",
             bgColor: "bg-blue-50",
@@ -72,9 +71,8 @@ const ContactUs = () => {
             icon: <FaPhone />,
             title: "Call Us",
             details: [
-                "Phone: (512) 877-3908",
-                "Toll-Free: 1-800-SERENITY",
-                "Available 24/7"
+                "Cara Faux • (210) 322-6621",
+                "Dai Nguyen • (210) 606-1146"
             ],
             color: "from-purple-500 to-purple-600",
             bgColor: "bg-purple-50",
@@ -84,9 +82,7 @@ const ContactUs = () => {
             icon: <FaEnvelope />,
             title: "Email Us",
             details: [
-                "info@slserenity.com",
-                "care@slserenity.com",
-                "tours@slserenity.com"
+                "info@sacompassionatecare.com"
             ],
             color: "from-cyan-500 to-cyan-600",
             bgColor: "bg-cyan-50",
@@ -96,9 +92,8 @@ const ContactUs = () => {
             icon: <FaClock />,
             title: "Office Hours",
             details: [
-                "Monday - Friday: 8:00 AM - 6:00 PM",
-                "Saturday: 9:00 AM - 4:00 PM",
-                "Sunday: By Appointment"
+                "Monday - Friday: 9:00 A.M to 5:00 P.M",
+                "24/7 additional care onsite"
             ],
             color: "from-orange-500 to-orange-600",
             bgColor: "bg-orange-50",
@@ -109,7 +104,6 @@ const ContactUs = () => {
     const socialLinks = [
         { icon: <FaFacebook />, name: "Facebook", color: "hover:bg-blue-600", href: "#" },
         { icon: <FaInstagram />, name: "Instagram", color: "hover:bg-pink-600", href: "#" },
-        { icon: <FaTwitter />, name: "Twitter", color: "hover:bg-sky-500", href: "#" },
         { icon: <FaTiktok />, name: "TikTok", color: "hover:bg-gray-900", href: "#" }
     ];
 
@@ -118,7 +112,7 @@ const ContactUs = () => {
             <Navbar />
             <main className="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-cyan-50">
                 {/* Hero Section */}
-                <motion.section 
+                <motion.section
                     className="relative overflow-hidden py-20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -126,13 +120,13 @@ const ContactUs = () => {
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-cyan-600/10"></div>
                     <div className="container mx-auto px-4 relative z-10">
-                        <motion.div 
+                        <motion.div
                             className="text-center max-w-3xl mx-auto"
                             initial={{ y: 50, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <motion.p 
+                            <motion.p
                                 className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-4"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -140,7 +134,7 @@ const ContactUs = () => {
                             >
                                 GET IN TOUCH
                             </motion.p>
-                            <motion.h1 
+                            <motion.h1
                                 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-gray-900 mb-6"
                                 initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -148,7 +142,7 @@ const ContactUs = () => {
                             >
                                 We're Here to Help
                             </motion.h1>
-                            <motion.p 
+                            <motion.p
                                 className="text-xl text-gray-600 leading-relaxed mb-8"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
@@ -172,7 +166,7 @@ const ContactUs = () => {
                 </motion.section>
 
                 {/* Contact Cards */}
-                <motion.section 
+                <motion.section
                     className="py-16"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -209,7 +203,7 @@ const ContactUs = () => {
                 </motion.section>
 
                 {/* Map and Form Section */}
-                <motion.section 
+                <motion.section
                     className="py-16"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -219,7 +213,7 @@ const ContactUs = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             {/* Map */}
-                            <motion.div 
+                            <motion.div
                                 className="rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-200"
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -238,14 +232,14 @@ const ContactUs = () => {
                             </motion.div>
 
                             {/* Quick Contact Form */}
-                            <motion.div 
+                            <motion.div
                                 className="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-8 shadow-2xl border-2 border-blue-100"
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <motion.h2 
+                                <motion.h2
                                     className="text-3xl font-serif font-bold text-gray-900 mb-2"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
@@ -254,7 +248,7 @@ const ContactUs = () => {
                                 >
                                     Quick Contact
                                 </motion.h2>
-                                <motion.p 
+                                <motion.p
                                     className="text-gray-600 mb-6"
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
@@ -263,7 +257,7 @@ const ContactUs = () => {
                                 >
                                     Fill out the form below and we'll get back to you within 24 hours.
                                 </motion.p>
-                                
+
                                 <div className="space-y-4">
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
@@ -368,10 +362,10 @@ const ContactUs = () => {
                                         For urgent matters or emergencies, please call our 24/7 emergency line:
                                     </p>
                                     <a
-                                        href="tel:+15128773908"
+                                        href="tel:+12103226621"
                                         className="text-2xl font-bold text-red-600 hover:text-red-700 transition-colors"
                                     >
-                                        (512) 877-3908
+                                        (210) 322-6621
                                     </a>
                                 </div>
                             </div>

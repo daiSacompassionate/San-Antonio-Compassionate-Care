@@ -15,9 +15,7 @@ import ContactUs from "./Pages/ContactUs";
 import CommunityActivities from "./Pages/CommunityActivities";
 import ServicesOverview from "./Pages/Services/ServicesOverview";
 import AssistedLiving from "./Pages/Services/AssistedLiving";
-import MemoryCare from "./Pages/Services/MemoryCare";
 import IndependentLiving from "./Pages/Services/IndependentLiving";
-import RespiteCare from "./Pages/Services/RespiteCare";
 import MedicationManagement from "./Pages/Services/MedicationManagement";
 import Home from "./Pages/Home";
 
@@ -55,9 +53,7 @@ function PublicRoutes() {
         {/* Service Routes */}
         <Route path="/services" element={<ServicesOverview />} />
         <Route path="/services/assisted-living" element={<AssistedLiving />} />
-        <Route path="/services/memory-care" element={<MemoryCare />} />
         <Route path="/services/independent-living" element={<IndependentLiving />} />
-        <Route path="/services/respite-care" element={<RespiteCare />} />
         <Route path="/services/medication-management" element={<MedicationManagement />} />
 
         {/* Redirect legacy root to public home */}

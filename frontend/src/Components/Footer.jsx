@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import logo from '../Images/logo.png';
 
 const Footer = () => {
     // Navigation data structure
@@ -10,10 +11,9 @@ const Footer = () => {
         ],
         services: [
             { name: "Medication-management", href: "/services/medication-management" },
-            { name: "Respite Care", href: "/services/respite-care" },
             { name: "Senior Living", href: "/services/independent-living" },
-            { name: "Memory-care", href: "/services/memory-care" },
-            { name: "Assisted Living", href: "/services/assisted-living" }
+            { name: "Assisted Living", href: "/services/assisted-living" },
+            { name: "All Services", href: "/services" }
         ]
     };
 
@@ -26,14 +26,16 @@ const Footer = () => {
 
                     {/* Column 1: Brand + Contact */}
                     <div className="lg:col-span-2 space-y-4 xs:space-y-6">
-                        <div className="space-y-2">
-                            <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl italic text-white font-light tracking-wide">
-                                San Antonio
-                            </h2>
-                            <div className="w-12 h-0.5 bg-amber-200/80 my-2"></div>
-                            <p className="text-xs uppercase tracking-widest text-gray-300 font-semibold">
-                                SENIOR LIVING
-                            </p>
+                        <div className="flex items-center gap-4">
+                            <img src={logo} alt="San Antonio Compassionate Care logo" className="w-20 h-auto object-contain" />
+                            <div className="space-y-1">
+                                <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl italic text-white font-light tracking-wide">
+                                    San Antonio
+                                </h2>
+                                <p className="text-sm uppercase tracking-widest text-amber-200 font-semibold">
+                                    Compassionate Care
+                                </p>
+                            </div>
                         </div>
 
                         <div className="space-y-4 font-sans text-sm xs:text-base">
@@ -57,18 +59,12 @@ const Footer = () => {
                                 <a href="tel:+12103226621" className="block text-white hover:text-amber-200 text-xs xs:text-sm font-semibold">
                                     Cara Faux • (210) 322-6621
                                 </a>
-                                <a href="tel:+12106061146" className="block text-white hover:text-amber-200 text-xs xs:text-sm font-semibold">
-                                    Dai Nguyen • (210) 606-1146
-                                </a>
                             </div>
 
                             <div className="space-y-1">
                                 <p className="text-gray-300 text-xs">Email Address</p>
-                                <a href="mailto:CaraFaux@sacompassionatecare.com" className="text-white hover:text-amber-200 text-xs xs:text-sm font-medium block break-all">
-                                    CaraFaux@sacompassionatecare.com
-                                </a>
-                                <a href="mailto:DaiNguyen@sacompassionatecare.com" className="block text-white hover:text-amber-200 text-xs xs:text-sm font-medium break-all">
-                                    DaiNguyen@sacompassionatecare.com
+                                <a href="mailto:info@sacompassionatecare.com" className="text-white hover:text-amber-200 text-xs xs:text-sm font-medium block break-all">
+                                    info@sacompassionatecare.com
                                 </a>
                             </div>
                         </div>
@@ -148,7 +144,7 @@ const Footer = () => {
 
                         {/* Copyright */}
                         <p className="text-gray-400 text-xs xs:text-sm text-center sm:text-left">
-                            © {new Date().getFullYear()} San Antonio Senior Living. All rights reserved.
+                            © {new Date().getFullYear()} San Antonio Compassionate Care. All rights reserved.
                         </p>
 
                         {/* LOGIN BUTTON */}

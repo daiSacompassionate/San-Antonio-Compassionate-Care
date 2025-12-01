@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendarAlt, FaHandHoldingUsd, FaHeadset } from 'react-icons/fa';
+import { FaCalendarAlt, FaHandHoldingUsd, FaUserNurse } from 'react-icons/fa';
 import homeImage from '../Images/Homepage.png'; // Adjust path as needed
 import Description from '../Components/Description';
 import MoreInfo from '../Components/MoreInfo';
@@ -90,9 +90,9 @@ const Home = () => {
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.6, delay: 1 }}
                                     >
-                                        <FaHeadset className="text-blue-200 shrink-0" size={16} />
+                                        <FaUserNurse className="text-blue-200 shrink-0" size={16} />
                                         <span className="text-white font-medium">
-                                            Available to chat with you 24/7
+                                            1–20 nurses will care for you.
                                         </span>
                                     </motion.div>
                                 </div>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { FaHome, FaHandsHelping, FaBrain } from 'react-icons/fa';
+import { FaHome, FaHandsHelping, FaPills } from 'react-icons/fa';
 import selfliving from "../Images/selfliving.jpg"
 import nurseImage from "../Images/nurse-tablet.avif";
+import doctorPatient from "../Images/doctor-patient.png";
 
 const Description = () => {
     const services = [
@@ -25,12 +26,12 @@ const Description = () => {
         },
         {
             id: 3,
-            title: "Memory Care",
-            bgColor: "from-purple-50 via-white to-pink-50",
-            image: "https://images.unsplash.com/photo-1584516150909-c43483ee7932?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-            description: "Specialized support for memory-related conditions",
-            accent: "from-fuchsia-500 to-purple-600",
-            icon: FaBrain
+            title: "Medication Management",
+            bgColor: "from-emerald-50 via-white to-emerald-100",
+            image: doctorPatient,
+            description: "Pharmacy partnerships and vigilant monitoring electronic MAR, pharmacist reviews, and clinical collaboration.",
+            accent: "from-emerald-400 to-emerald-600",
+            icon: FaPills
         }
     ];
 

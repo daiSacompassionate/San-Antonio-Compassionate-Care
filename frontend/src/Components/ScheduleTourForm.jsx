@@ -280,9 +280,8 @@ export default function ScheduleTourForm({ isOpen, onClose }) {
                                 options={[
                                     "general",
                                     "assisted-living",
-                                    "memory-care",
                                     "independent-living",
-                                    "respite-care"
+                                    "medication-management"
                                 ]}
                             />
                         </div>

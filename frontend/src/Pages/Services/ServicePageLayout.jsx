@@ -112,7 +112,7 @@ const ServicePageLayout = ({
                     Book a Personal Tour
                   </button>
                   <a
-                    href="tel:+12106061146"
+                    href="tel:+12103226621"
                     className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/60 text-white font-semibold hover:bg-white/10 transition"
                   >
                     Call Us
@@ -290,7 +290,7 @@ const ServicePageLayout = ({
                     {cta.primaryAction || 'Schedule a Visit'}
                   </button>
                   <a
-                    href="tel:+12106061146"
+                    href="tel:+12103226621"
                     className="px-6 py-3 rounded-full border border-white/60 text-white font-semibold hover:bg-white/10 transition text-center"
                   >
                     Call Us

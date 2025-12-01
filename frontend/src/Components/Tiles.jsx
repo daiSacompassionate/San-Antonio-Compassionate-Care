@@ -4,76 +4,89 @@ import {
     ScrollVelocityRow,
 } from "../Components/ui/scroll-based-velocity";
 
+import Home1 from "../Images/Home1.jpeg";
+import Home2 from "../Images/Home2.jpeg";
+import Home3 from "../Images/Home3.jpeg";
+import Home4 from "../Images/Home4.jpeg";
+import Home5 from "../Images/Home5.jpeg";
+import Home6 from "../Images/Home6.jpeg";
+import Home7 from "../Images/Home7.jpeg";
+import Home8 from "../Images/Home8.jpeg";
+import Home9 from "../Images/Home9.jpeg";
+import doctorPatient from "../Images/doctor-patient.png";
+import nurseTablet from "../Images/nurse-tablet.avif";
+import selfLiving from "../Images/selfliving.jpg";
+
 const Tiles = () => {
     const services = [
         {
-            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+            image: Home1,
             title: "Assisted Living Suites",
             caption: "Warm, boutique residences with thoughtful finishes.",
-            tag: "Residences"
+            tag: "Residences",
         },
         {
-            image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1400&q=80",
-            title: "Chef-Crafted Dining",
-            caption: "Seasonal menus crafted for wellness and delight.",
-            tag: "Dining"
+            image: doctorPatient,
+            title: "Medication Management",
+            caption: "Pharmacy partnerships and vigilant monitoring — electronic MAR, pharmacist reviews, and 24/7 clinical collaboration.",
+            tag: "Medication",
         },
         {
-            image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
+            image: doctorPatient,
             title: "Personalized Care Plans",
             caption: "Daily support that adapts as needs evolve.",
-            tag: "Care Team"
+            tag: "Care Team",
         },
         {
-            image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80",
-            title: "Memory Care Neighborhoods",
-            caption: "Secure spaces designed around recognition and joy.",
+            image: Home3,
+            title: "Specialized Memory Care",
+            caption: "Curated care path with focused therapies and integrated Medication Management.",
             tag: "Memory Care"
         },
         {
-            image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80",
+            image: nurseTablet,
             title: "Health & Wellness Studio",
             caption: "Daily movement, therapy partners, and telehealth suites.",
             tag: "Wellness"
         },
         {
-            image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
+            image: Home4,
             title: "Family Concierge",
             caption: "Transparent updates and concierge support for families.",
             tag: "Family Support"
         },
         {
-            image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
+            image: Home5,
             title: "Weekenders & Events",
             caption: "Concerts, culinary labs, and resident-led clubs.",
             tag: "Lifestyle"
         },
         {
-            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+            image: Home6,
             title: "Garden Courtyards",
             caption: "Blooming courtyards with sensory pathways and patios.",
             tag: "Outdoors"
         },
         {
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80",
+            image: Home7,
             title: "Transportation Concierge",
             caption: "Door-to-door rides for appointments and outings.",
             tag: "Convenience"
         },
         {
-            image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
+            image: Home8,
             title: "Technology Lounge",
             caption: "Stay connected with virtual visits and VR travel.",
             tag: "Technology"
         },
         {
-            image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=80",
+            image: Home9,
             title: "Spa & Salon",
             caption: "On-site pampering for hair, nails, and relaxation.",
             tag: "Amenities"
         },
         {
-            image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
+            image: selfLiving,
             title: "Respite & Trial Stays",
             caption: "Fully furnished suites for short stays and transitions.",
             tag: "Respite"

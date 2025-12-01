@@ -191,10 +191,10 @@ const CommunityActivities = () => {
                   Plan a Visit
                 </motion.button>
                 <a
-                  href="mailto:CaraFaux@sacompassionatecare.com,DaiNguyen@sacompassionatecare.com"
+                  href="mailto:info@sacompassionatecare.com"
                   className="px-6 py-3 rounded-full border border-white/50 text-white font-semibold hover:bg-white/10 transition"
                 >
-                  Email Cara & Dai
+                  Email Us
                 </a>
               </motion.div>
             </div>
@@ -385,7 +385,7 @@ const CommunityActivities = () => {
                 Contact Us
               </motion.button>
               <a
-                href="tel:+12106061146"
+                href="tel:+12103226621"
                 className="px-6 py-3 rounded-full border border-white/60 text-white font-semibold hover:bg-white/10 transition text-center"
               >
                 Call Us
