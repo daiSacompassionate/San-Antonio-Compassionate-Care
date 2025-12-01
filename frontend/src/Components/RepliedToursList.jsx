@@ -131,7 +131,7 @@ const RepliedToursList = () => {
                 </div>
             )}
 
-                    {!loading && !error && tours.length > 0 && (
+            {!loading && !error && tours.length > 0 && (
                 <div className="grid gap-6">
                     {tours.map((t, index) => (
                         <div

@@ -34,7 +34,7 @@ const DashboardContent = () => {
                         ☰
                     </button>
                     <div className="text-lg font-semibold">Admin Dashboard</div>
-                    <div style={{width:32}} />
+                    <div style={{ width: 32 }} />
                 </div>
 
                 {/* -------------------- DASHBOARD VIEW -------------------- */}

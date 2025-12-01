@@ -22,7 +22,7 @@ const Navbar = () => {
     const { openModal } = useInquiryModal();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-    
+
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
@@ -49,7 +49,7 @@ const Navbar = () => {
         setIsSearchOpen(!isSearchOpen);
     };
 
-    
+
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
@@ -60,7 +60,7 @@ const Navbar = () => {
         }
     };
 
-    
+
 
     const navigationItems = [
         { name: "Home", icon: FaHome, path: "/" },
@@ -131,7 +131,7 @@ const Navbar = () => {
                             ))}
                         </div>
 
-                        
+
 
                         {/* Desktop Search and CTA - Ultra Compact */}
                         <div className="hidden lg:flex items-center space-x-2">
@@ -243,9 +243,9 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                
 
-                                
+
+
 
                                 {/* Mobile CTA Button */}
                                 <div className="px-2 pt-3">

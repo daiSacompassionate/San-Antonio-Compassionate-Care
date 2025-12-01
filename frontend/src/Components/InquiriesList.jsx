@@ -130,7 +130,7 @@ const InquiriesList = () => {
     return (
         <div className="max-w-7xl mx-auto animate-fade-in px-4 sm:px-6 lg:px-8">
             {/* Header */}
-                <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl shadow-xl border border-blue-100 p-4 sm:p-8 mb-6 sm:mb-8 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl shadow-xl border border-blue-100 p-4 sm:p-8 mb-6 sm:mb-8 overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/30 rounded-full -mr-32 -mt-32 blur-3xl"></div>
                 <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                     <div>

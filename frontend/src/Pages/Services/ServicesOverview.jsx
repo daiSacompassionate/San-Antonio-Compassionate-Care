@@ -209,53 +209,53 @@ const ServicesOverview = () => {
             <p className="text-sm uppercase tracking-[0.4em] text-blue-500">ADDITIONAL SERVICES</p>
             <h2 className="text-3xl font-serif text-slate-900 mt-4">Other ways we support residents</h2>
             <div className="grid gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3">
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgIndependent} alt="Independent Living" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">Independent Living</h3>
-                    <p className="text-sm md:text-base text-slate-600">Boutique residences with community programming and optional services.</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgIndependent} alt="Independent Living" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Independent Living</h3>
+                  <p className="text-sm md:text-base text-slate-600">Boutique residences with community programming and optional services.</p>
+                </div>
+              </motion.div>
 
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgTech} alt="Technology & Telehealth" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">Technology & Telehealth</h3>
-                    <p className="text-sm md:text-base text-slate-600">Virtual visits, telemedicine support, and tech concierge services.</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgTech} alt="Technology & Telehealth" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Technology & Telehealth</h3>
+                  <p className="text-sm md:text-base text-slate-600">Virtual visits, telemedicine support, and tech concierge services.</p>
+                </div>
+              </motion.div>
 
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgGroom} alt="On-site grooming and wellness" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">On-site grooming and wellness</h3>
-                    <p className="text-sm md:text-base text-slate-600">On-site grooming and wellness services for comfort and dignity.</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgGroom} alt="On-site grooming and wellness" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">On-site grooming and wellness</h3>
+                  <p className="text-sm md:text-base text-slate-600">On-site grooming and wellness services for comfort and dignity.</p>
+                </div>
+              </motion.div>
 
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgTransport} alt="Transportation Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">Transportation Concierge</h3>
-                    <p className="text-sm md:text-base text-slate-600">Door-to-door transportation for appointments and outings.</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgTransport} alt="Transportation Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Transportation Concierge</h3>
+                  <p className="text-sm md:text-base text-slate-600">Door-to-door transportation for appointments and outings.</p>
+                </div>
+              </motion.div>
 
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgFamily} alt="Family Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">Family Concierge</h3>
-                    <p className="text-sm md:text-base text-slate-600">Communication and coordination support for families and POAs.</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgFamily} alt="Family Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">Family Concierge</h3>
+                  <p className="text-sm md:text-base text-slate-600">Communication and coordination support for families and POAs.</p>
+                </div>
+              </motion.div>
 
-                <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                  <img src={imgNurses} alt="1-20 Nurses" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-lg">1-20 Nurses</h3>
-                    <p className="text-sm md:text-base text-slate-600">1–20 nurses for you caring!</p>
-                  </div>
-                </motion.div>
+              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
+                <img src={imgNurses} alt="1-20 Nurses" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-lg">1-20 Nurses</h3>
+                  <p className="text-sm md:text-base text-slate-600">1–20 nurses for you caring!</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>

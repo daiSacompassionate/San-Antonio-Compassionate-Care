@@ -20,7 +20,7 @@ const ServicePageLayout = ({
       <Navbar />
       <main className="pt-16 bg-slate-50 min-h-screen font-sans">
         {/* Hero */}
-        <motion.section 
+        <motion.section
           className="relative overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -38,14 +38,14 @@ const ServicePageLayout = ({
             transition={{ duration: 1 }}
           >
             <div className="container mx-auto px-4 py-24 lg:py-32 text-white">
-              <motion.div 
+              <motion.div
                 className="max-w-4xl space-y-6"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 {hero?.eyebrow && (
-                  <motion.p 
+                  <motion.p
                     className="text-xs uppercase tracking-[0.3em] text-blue-100"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -55,7 +55,7 @@ const ServicePageLayout = ({
                   </motion.p>
                 )}
                 <div className="space-y-4">
-                  <motion.h1 
+                  <motion.h1
                     className="text-3xl lg:text-5xl font-serif font-semibold leading-tight"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -63,7 +63,7 @@ const ServicePageLayout = ({
                   >
                     {hero?.title}
                   </motion.h1>
-                  <motion.p 
+                  <motion.p
                     className="text-lg lg:text-xl text-blue-50/90"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}

@@ -135,12 +135,12 @@ const RepliedInquiriesList = () => {
                 </div>
             )}
 
-                    {!loading && !error && inquiries.length > 0 && (
+            {!loading && !error && inquiries.length > 0 && (
                 <div className="grid gap-6">
                     {inquiries.map((i, index) => (
                         <div
                             key={i.id}
-                                className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
+                            className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative"
                             style={{ animationDelay: `${index * 50}ms` }}
                         >
                             <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-indigo-500 to-blue-500"></div>
