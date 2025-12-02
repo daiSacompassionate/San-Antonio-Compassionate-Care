@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useInquiryModal } from '../context/InquiryModalContext';
+import { useInquiryModal, useScheduleTourModal } from '../context/InquiryModalContext';
 import {
   FaPalette,
   FaGuitar,
@@ -131,6 +131,7 @@ const retreatExperiences = [
 
 const CommunityActivities = () => {
   const { openModal } = useInquiryModal();
+  const { openModal: openTourModal } = useScheduleTourModal();
   return (
     <>
       <Navbar />
@@ -183,7 +184,7 @@ const CommunityActivities = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 <motion.button
-                  onClick={openModal}
+                  onClick={openTourModal}
                   className="px-6 py-3 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:-translate-y-0.5 transition"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -377,7 +378,7 @@ const CommunityActivities = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.button
-                onClick={openModal}
+                onClick={openTourModal}
                 className="px-6 py-3 rounded-full bg-white text-blue-700 font-semibold shadow-lg hover:-translate-y-0.5 transition text-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

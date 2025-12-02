@@ -38,7 +38,7 @@ const ServicesOverview = () => {
       <Navbar />
       <main className="pt-16 min-h-screen bg-slate-50 font-sans">
         {/* Hero - full viewport height (minus navbar) */}
-        <motion.section className="relative overflow-hidden lg:h-[calc(100vh-4rem)] h-auto min-h-[60vh]" aria-labelledby="our-care-continuum"
+        <motion.section className="relative overflow-hidden h-[calc(100vh-4rem)]" aria-labelledby="our-care-continuum"
           variants={heroVariant} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}
         >
           <div
@@ -46,22 +46,21 @@ const ServicesOverview = () => {
             style={{
               backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 64, 175, 0.75)), url(${heroImage})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'center center',
             }}
             aria-hidden="true"
           />
-
-          <div className="relative z-10 container mx-auto px-4 h-full flex items-start lg:items-center py-8 lg:py-0">
-            <motion.div className="text-white max-w-4xl px-1 sm:px-0" variants={containerVariants}>
+          <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center py-4 lg:py-0 overflow-hidden">
+            <motion.div className="text-white max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl px-1 sm:px-0" variants={containerVariants}>
               <motion.p id="our-care-continuum" className="text-xs uppercase tracking-[0.4em] text-blue-100 mb-4" variants={itemVariants}>OUR CARE CONTINUUM</motion.p>
-              <motion.h1 className="text-3xl lg:text-5xl font-serif font-semibold leading-tight" variants={itemVariants}>
+              <motion.h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight text-center lg:text-left" variants={itemVariants}>
                 Thoughtfully crafted services on a single page
               </motion.h1>
-              <motion.p className="mt-6 text-lg max-w-3xl text-blue-100/90" variants={itemVariants}>
+              <motion.p className="mt-4 sm:mt-6 text-base sm:text-lg max-w-xl sm:max-w-3xl text-blue-100/90 text-center lg:text-left" variants={itemVariants}>
                 Below you'll find detailed information starting with our Assisted Living approach followed by
                 Medication Management and 24/7 Additional Care onsite. Other services are summarized below.
               </motion.p>
-              <motion.div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4" variants={itemVariants}>
+              <motion.div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start" variants={itemVariants}>
                 <button
                   onClick={openModal}
                   className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:-translate-y-0.5 transition text-center"

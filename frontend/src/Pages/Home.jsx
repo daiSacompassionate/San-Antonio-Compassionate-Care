@@ -18,8 +18,9 @@ const Home = () => {
             <Navbar />
             <div>
                 <motion.div
-                    className="relative w-full bg-cover bg-center bg-no-repeat flex items-center min-h-screen pt-20 md:pt-0"
+                    className="relative w-full bg-cover bg-center bg-no-repeat flex items-start md:items-center min-h-[70vh] md:min-h-screen pt-16 md:pt-0 overflow-hidden"
                     style={{
+                        backgroundColor: 'rgba(15,23,42,0.6)',
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(${homeImage})`
                     }}
                     initial={{ opacity: 0 }}
@@ -27,7 +28,7 @@ const Home = () => {
                     transition={{ duration: 0.8 }}
                 >
                     {/* Content Container */}
-                    <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10 w-full">
+                    <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10 w-full py-6 md:py-0">
                         <div className="max-w-2xl">
                             {/* Main Title */}
                             <motion.h1
@@ -52,7 +53,7 @@ const Home = () => {
 
                             {/* Interactive Elements / CTAs */}
                             <motion.div
-                                className="flex flex-col xs:flex-col sm:flex-row items-stretch xs:items-start sm:items-center gap-3 sm:gap-4 md:gap-6"
+                                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 md:gap-6"
                                 initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -60,7 +61,7 @@ const Home = () => {
                                 {/* Primary CTA Button */}
                                 <motion.button
                                     onClick={openTourModal}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 xs:py-4 px-6 xs:px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2 xs:gap-3 text-base xs:text-lg whitespace-nowrap"
+                                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 xs:py-4 px-6 xs:px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2 xs:gap-3 text-base xs:text-lg whitespace-nowrap w-full sm:w-auto"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
@@ -69,7 +70,7 @@ const Home = () => {
                                 </motion.button>
 
                                 {/* Secondary Info Features */}
-                                <div className="flex flex-col xs:flex-row gap-2 xs:gap-3 sm:gap-4 md:gap-6 w-full sm:w-auto">
+                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 md:gap-6 w-full sm:w-auto">
                                     {/* Feature 1 - Flexible Payment */}
                                     <motion.div
                                         className="flex items-center gap-2 xs:gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-3 xs:px-4 py-2 xs:py-3 border border-white/20 text-xs xs:text-sm sm:text-base"
@@ -77,7 +78,7 @@ const Home = () => {
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.6, delay: 0.8 }}
                                     >
-                                        <FaHandHoldingUsd className="text-blue-200 shrink-0" size={16} />
+                                        <FaHandHoldingUsd className="text-blue-200 shrink-0" size={14} />
                                         <span className="text-white font-medium">
                                             Flexible private pay options available
                                         </span>
@@ -90,7 +91,7 @@ const Home = () => {
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.6, delay: 1 }}
                                     >
-                                        <FaUserNurse className="text-blue-200 shrink-0" size={16} />
+                                        <FaUserNurse className="text-blue-200 shrink-0" size={14} />
                                         <span className="text-white font-medium">
                                             1–20 nurses will care for you.
                                         </span>
