@@ -38,7 +38,7 @@ const ServicesOverview = () => {
       <Navbar />
       <main className="pt-16 min-h-screen bg-slate-50 font-sans">
         {/* Hero - full viewport height (minus navbar) */}
-        <motion.section className="relative overflow-hidden h-[calc(100vh-4rem)]" aria-labelledby="our-care-continuum"
+        <motion.section className="relative overflow-hidden lg:h-[calc(100vh-4rem)] h-auto min-h-[60vh]" aria-labelledby="our-care-continuum"
           variants={heroVariant} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}
         >
           <div
@@ -51,8 +51,8 @@ const ServicesOverview = () => {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-            <motion.div className="text-white max-w-4xl" variants={containerVariants}>
+          <div className="relative z-10 container mx-auto px-4 h-full flex items-start lg:items-center py-8 lg:py-0">
+            <motion.div className="text-white max-w-4xl px-1 sm:px-0" variants={containerVariants}>
               <motion.p id="our-care-continuum" className="text-xs uppercase tracking-[0.4em] text-blue-100 mb-4" variants={itemVariants}>OUR CARE CONTINUUM</motion.p>
               <motion.h1 className="text-3xl lg:text-5xl font-serif font-semibold leading-tight" variants={itemVariants}>
                 Thoughtfully crafted services on a single page
@@ -61,14 +61,14 @@ const ServicesOverview = () => {
                 Below you'll find detailed information starting with our Assisted Living approach followed by
                 Medication Management and 24/7 Additional Care onsite. Other services are summarized below.
               </motion.p>
-              <motion.div className="mt-8 flex flex-wrap gap-4" variants={itemVariants}>
+              <motion.div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4" variants={itemVariants}>
                 <button
                   onClick={openModal}
-                  className="px-6 py-3 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:-translate-y-0.5 transition"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:-translate-y-0.5 transition text-center"
                 >
                   Contact Us
                 </button>
-                <a href="tel:+12103226621" className="px-6 py-3 rounded-full border border-white/50 text-white font-semibold hover:bg-white/10 transition">
+                <a href="tel:+12103226621" className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/50 text-white font-semibold hover:bg-white/10 transition text-center">
                   Call Us
                 </a>
               </motion.div>
@@ -77,7 +77,7 @@ const ServicesOverview = () => {
         </motion.section>
 
         {/* Assisted Living — main content */}
-        <section id="assisted-living" className="container mx-auto px-4 py-16">
+        <section id="assisted-living" className="container mx-auto px-4 py-12 sm:py-16">
           <motion.div className="grid gap-8 lg:grid-cols-2 items-center" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.div className="space-y-6" variants={itemVariants}>
               <div className="inline-flex items-center gap-3">
@@ -113,23 +113,23 @@ const ServicesOverview = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <button onClick={openModal} className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-xl shadow hover:scale-[1.02] transition">Contact Us</button>
-                <a href="#medication-management" className="inline-flex items-center gap-2 border border-slate-200 px-5 py-3 rounded-xl text-slate-700 hover:bg-slate-50 transition">See Medication Management</a>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-3 rounded-xl shadow hover:scale-[1.02] transition">Contact Us</button>
+                <a href="#medication-management" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-200 px-5 py-3 rounded-xl text-slate-700 hover:bg-slate-50 transition">See Medication Management</a>
               </div>
             </motion.div>
 
             <motion.div className="rounded-3xl overflow-hidden shadow-lg bg-white" variants={itemVariants}>
-              <img src={assistedImg} alt="Assisted Living" className="w-full h-72 md:h-[420px] object-cover" />
+              <img src={assistedImg} alt="Assisted Living" className="w-full h-64 sm:h-72 md:h-[420px] object-cover" />
             </motion.div>
           </motion.div>
         </section>
 
         {/* Medication Management - full viewport height */}
-        <motion.section id="medication-management" className="relative h-[calc(100vh-4rem)] bg-white" aria-labelledby="med-management"
+        <motion.section id="medication-management" className="relative lg:h-[calc(100vh-4rem)] h-auto bg-white py-10 lg:py-0" aria-labelledby="med-management"
           variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}
         >
-          <div className="container mx-auto px-4 h-full flex items-center">
+          <div className="container mx-auto px-4 h-auto lg:h-full flex items-start lg:items-center py-6 lg:py-0">
             <motion.div className="w-full grid lg:grid-cols-2 gap-8 items-center" variants={containerVariants}>
               <motion.div className="order-2 lg:order-1" variants={itemVariants}>
                 <div className="inline-flex items-center gap-3">
@@ -166,18 +166,18 @@ const ServicesOverview = () => {
                 </div>
 
                 <div className="mt-6">
-                  <button onClick={openModal} className="inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow hover:scale-[1.02] transition"><FaUserNurse /> Request Medication Review</button>
+                  <button onClick={openModal} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow hover:scale-[1.02] transition"><FaUserNurse /> Request Medication Review</button>
                 </div>
               </motion.div>
               <motion.div className="order-1 lg:order-2" variants={itemVariants}>
-                <img src={medImg} alt="Medication Management" className="w-full rounded-3xl shadow-lg object-cover h-64 lg:h-[60vh]" />
+                <img src={medImg} alt="Medication Management" className="w-full rounded-3xl shadow-lg object-cover h-52 sm:h-64 lg:h-[60vh]" />
               </motion.div>
             </motion.div>
           </div>
         </motion.section>
 
         {/* Additional Care Onsite */}
-        <section id="additional-care" className="container mx-auto px-4 py-16">
+        <section id="additional-care" className="container mx-auto px-4 py-12 sm:py-16">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.4em] text-blue-500">24/7 ADDITIONAL CARE ONSITE</p>
@@ -190,7 +190,7 @@ const ServicesOverview = () => {
               </ul>
             </div>
             <div>
-              <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-white p-8 shadow-lg">
+              <div className="rounded-3xl bg-linear-to-br from-amber-50 to-white p-6 sm:p-8 shadow-lg">
                 <p className="font-semibold">One to twenty nurses available for you!</p>
                 <p className="mt-2 text-slate-600">Flexible nursing coverage scaled to your needs — from short-term support to ongoing on-site care, staffed by licensed professionals.</p>
                 <ul className="mt-3 space-y-2 text-slate-600">
@@ -209,48 +209,48 @@ const ServicesOverview = () => {
             <p className="text-sm uppercase tracking-[0.4em] text-blue-500">ADDITIONAL SERVICES</p>
             <h2 className="text-3xl font-serif text-slate-900 mt-4">Other ways we support residents</h2>
             <div className="grid gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3">
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgIndependent} alt="Independent Living" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgIndependent} alt="Independent Living" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Independent Living</h3>
                   <p className="text-sm md:text-base text-slate-600">Boutique residences with community programming and optional services.</p>
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgTech} alt="Technology & Telehealth" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgTech} alt="Technology & Telehealth" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Technology & Telehealth</h3>
                   <p className="text-sm md:text-base text-slate-600">Virtual visits, telemedicine support, and tech concierge services.</p>
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgGroom} alt="On-site grooming and wellness" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgGroom} alt="On-site grooming and wellness" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">On-site grooming and wellness</h3>
                   <p className="text-sm md:text-base text-slate-600">On-site grooming and wellness services for comfort and dignity.</p>
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgTransport} alt="Transportation Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgTransport} alt="Transportation Concierge" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Transportation Concierge</h3>
                   <p className="text-sm md:text-base text-slate-600">Door-to-door transportation for appointments and outings.</p>
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgFamily} alt="Family Concierge" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgFamily} alt="Family Concierge" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">Family Concierge</h3>
                   <p className="text-sm md:text-base text-slate-600">Communication and coordination support for families and POAs.</p>
                 </div>
               </motion.div>
 
-              <motion.div whileHover={{ y: -6 }} className="p-8 md:p-10 rounded-3xl border shadow-md flex items-center gap-8 bg-white min-h-[140px]">
-                <img src={imgNurses} alt="1-20 Nurses" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
+              <motion.div whileHover={{ y: -6 }} className="p-6 md:p-8 rounded-3xl border shadow-md flex flex-col sm:flex-row items-start gap-4 md:gap-8 bg-white min-h-[140px]">
+                <img src={imgNurses} alt="1-20 Nurses" className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-lg object-cover shrink-0" />
                 <div>
                   <h3 className="font-semibold text-lg">1-20 Nurses</h3>
                   <p className="text-sm md:text-base text-slate-600">1–20 nurses for you caring!</p>
