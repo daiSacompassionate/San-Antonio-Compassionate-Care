@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useAdmin } from '../context/AdminContext';
-import ProtectedRoute from '../components/ProtectedRoute';
-import Sidebar from '../components/Sidebar';
-import InquiriesList from '../components/InquiriesList';
-import TourList from '../components/TourList';
-import RepliedInquiriesList from '../components/RepliedInquiriesList';
-import RepliedToursList from '../components/RepliedToursList';
+import ProtectedRoute from '../Components/ProtectedRoute';
+import Sidebar from '../Components/Sidebar';
+import InquiriesList from '../Components/InquiriesList';
+import TourList from '../Components/TourList';
+import RepliedInquiriesList from '../Components/RepliedInquiriesList';
+import RepliedToursList from '../Components/RepliedToursList';
 
 const DashboardContent = () => {
     const { admin, logout } = useAdmin();
@@ -183,4 +183,3 @@ const Dashboard = () => (
 );
 
 export default Dashboard;
-
