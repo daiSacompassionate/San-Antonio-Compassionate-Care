@@ -312,23 +312,32 @@ CORS_ORIGIN=https://sacompassionatecare.com
 ```
 
 **Database Variables (Copy from PostgreSQL service):**
-1. Click on your PostgreSQL service
-2. Go to **"Connect"** tab
-3. Copy these values to your backend service variables:
-   - `PGHOST` - Copy from DATABASE_HOST
-   - `PGPORT` - Copy from DATABASE_PORT (usually 5432)
-   - `PGUSER` - Copy from DATABASE_USER
-   - `PGPASSWORD` - Copy from DATABASE_PASSWORD
-   - `PGDATABASE` - Copy from DATABASE_NAME
 
-**OR use Railway's reference variables (easier):**
+**Option 1: Direct Values (Your Actual Configuration):**
+```env
+PGHOST=postgres.railway.internal
+PGPORT=5432
+PGUSER=postgres
+PGPASSWORD=xqkGKwoDHXfkjBvfyycIGPaYTlYmngMI
+PGDATABASE=railway
 ```
+
+**Option 2: Use Railway's Reference Variables (Recommended - Auto-updates):**
+```env
 PGHOST=${{Postgres.PGHOST}}
 PGPORT=${{Postgres.PGPORT}}
 PGUSER=${{Postgres.PGUSER}}
 PGPASSWORD=${{Postgres.PGPASSWORD}}
 PGDATABASE=${{Postgres.PGDATABASE}}
 ```
+
+**How to get these values:**
+1. Click on your PostgreSQL service
+2. Go to **"Variables"** or **"Connect"** tab
+3. Copy the values shown there
+4. Paste them into your backend service Variables tab
+
+**Note:** Using reference variables (Option 2) is recommended as they automatically update if you regenerate database credentials.
 
 ### Step 2.5: Setup Database Schema
 
