@@ -16,7 +16,7 @@ This guide will help you deploy your San Antonio Compassionate Care application 
 ## 🎯 Architecture
 
 ```
-Internet (bloomtechtest.com)
+Internet (sacompassionatecare.com)
         ↓
 Cloudflare Pages (Frontend)
         ↓
@@ -31,7 +31,7 @@ Before starting, ensure you have:
 - [ ] GitHub account
 - [ ] Railway account (we'll create this)
 - [ ] Cloudflare account (we'll create this)
-- [ ] Domain: bloomtechtest.com (or any domain)
+- [ ] Domain: sacompassionatecare.com (or any domain)
 - [ ] Your code pushed to GitHub repository
 - [ ] Credit/debit card for Railway ($5/month after trial)
 
@@ -308,7 +308,7 @@ Make sure your backend has:
 NODE_ENV=production
 PORT=5000
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production_12345_railway
-CORS_ORIGIN=https://bloomtechtest.com
+CORS_ORIGIN=https://sacompassionatecare.com
 ```
 
 **Database Variables (Copy from PostgreSQL service):**
@@ -396,9 +396,9 @@ curl https://your-app.up.railway.app/api/
 
 ### Step 3.2: Add Your Domain (Optional)
 
-If you want to use bloomtechtest.com:
+If you want to use sacompassionatecare.com:
 1. Go to **"Websites"** → **"Add a site"**
-2. Enter: **bloomtechtest.com**
+2. Enter: **sacompassionatecare.com**
 3. Select **Free** plan
 4. Update nameservers at your domain registrar
 5. Wait for DNS propagation (5 mins - 48 hours)
@@ -441,10 +441,10 @@ VITE_BACKEND_URL=https://your-railway-backend.up.railway.app/api
 
 1. In your Pages project, go to **"Custom domains"**
 2. Click **"Set up a custom domain"**
-3. Enter: **bloomtechtest.com**
+3. Enter: **sacompassionatecare.com**
 4. Click **"Continue"**
 5. Cloudflare will automatically configure DNS
-6. Also add: **www.bloomtechtest.com**
+6. Also add: **www.sacompassionatecare.com**
 7. Wait 2-5 minutes for SSL certificate activation
 
 ---
@@ -457,7 +457,7 @@ Make sure your Railway backend CORS_ORIGIN includes your frontend URL:
 
 In Railway backend service Variables:
 ```env
-CORS_ORIGIN=https://bloomtechtest.com,https://san-antonio-care.pages.dev,https://www.bloomtechtest.com
+CORS_ORIGIN=https://sacompassionatecare.com,https://san-antonio-care.pages.dev,https://www.sacompassionatecare.com
 ```
 
 **Or update in your backend code** (`app.js` or `server.js`):
@@ -466,8 +466,8 @@ const cors = require('cors');
 
 app.use(cors({
   origin: [
-    'https://bloomtechtest.com',
-    'https://www.bloomtechtest.com',
+    'https://sacompassionatecare.com',
+    'https://www.sacompassionatecare.com',
     'https://san-antonio-care.pages.dev'
   ],
   credentials: true
@@ -503,7 +503,7 @@ Cloudflare Pages will auto-deploy.
 
 ### Step 4.3: Test Complete Application
 
-1. Visit: **https://bloomtechtest.com** (or your Cloudflare Pages URL)
+1. Visit: **https://sacompassionatecare.com** (or your Cloudflare Pages URL)
 2. Check that homepage loads
 3. Test navigation
 4. Try submitting inquiry form
@@ -880,7 +880,7 @@ git push origin main
 ### Your Application
 
 - **GitHub**: https://github.com/TharushaTDK/San-Antonio-Compassionate-Care
-- **Frontend**: https://bloomtechtest.com
+- **Frontend**: https://sacompassionatecare.com
 - **Backend API**: https://your-railway-app.up.railway.app
 
 ---
@@ -893,7 +893,7 @@ After completing deployment, verify:
 - [ ] **Database Connected**: PostgreSQL service shows "Active"
 - [ ] **Schema Created**: Tables exist in database
 - [ ] **Frontend Deployed**: Cloudflare Pages shows "Active"
-- [ ] **Custom Domain**: bloomtechtest.com points to site
+- [ ] **Custom Domain**: sacompassionatecare.com points to site
 - [ ] **HTTPS Working**: Site loads with padlock icon
 - [ ] **API Connectivity**: Frontend can call backend APIs
 - [ ] **CORS Configured**: No CORS errors in browser console
@@ -915,7 +915,7 @@ After completing deployment, verify:
 Congratulations! Your application is now deployed on:
 
 ### 🌐 **Production URLs**
-- **Website**: https://bloomtechtest.com
+- **Website**: https://sacompassionatecare.com
 - **Backend API**: https://your-railway-app.up.railway.app
 
 ### 💰 **Monthly Cost**
