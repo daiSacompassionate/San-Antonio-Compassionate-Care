@@ -485,21 +485,57 @@ Connection successful!
 
 ### Step 2.5: Setup Database Schema
 
-**Option A: Using Railway PostgreSQL Client**
-1. Click on PostgreSQL service
-2. Go to **"Data"** tab
-3. Click **"Query"**
-4. Copy and paste your `schema.sql` content
-5. Click **"Run"**
+✅ **AUTOMATIC SETUP** - Your backend now automatically initializes the database schema on startup!
 
-**Option B: Using Local Connection**
+**What happens automatically:**
+- When your backend deploys and starts, it reads `schema.sql`
+- Creates all tables if they don't exist (using `CREATE TABLE IF NOT EXISTS`)
+- Safe to run multiple times - won't duplicate tables
+- You'll see `✅ Database schema initialized successfully` in logs
+
+**To verify schema was created:**
+1. Go to Railway → Click your backend service
+2. Go to **"Observability"** → **"Deployments"** → Latest deployment
+3. Click **"View Logs"**
+4. Look for: `🔄 Initializing database schema...` and `✅ Database schema initialized successfully`
+
+---
+
+**Manual Setup (Optional - Only if automatic setup fails)**
+
+**Option A: Using Railway CLI** (⭐ RECOMMENDED)
 ```bash
-# Get connection string from Railway PostgreSQL service
-# Copy the DATABASE_URL from Variables tab
+# 1. Install Railway CLI (one-time)
+npm i -g @railway/cli
 
-# Connect and run schema
-psql "your_railway_database_url_here" < backend/schema.sql
+# 2. Login to Railway
+railway login
+
+# 3. Link to your project
+railway link
+
+# 4. Connect and run schema
+railway connect Postgres
+# Then in psql prompt:
+\i backend/schema.sql
+\q
 ```
+
+**Option B: Using Public Connection** (⚠️ Causes egress costs)
+```bash
+# 1. Get connection string from Railway:
+#    - Click PostgreSQL service → "Connect" tab → "Public Network"
+#    - Copy the connection URL
+
+# 2. Run schema using the URL
+psql "postgresql://postgres:password@host:port/railway" -f backend/schema.sql
+```
+
+**Option C: Using Railway Data Tab**
+1. Click PostgreSQL service
+2. Go to **"Data"** tab
+3. Click **"Create table"** and manually create tables
+4. Or use a database GUI client (TablePlus, DBeaver, pgAdmin)
 
 ### Step 2.6: Seed Admin Users (Optional)
 
