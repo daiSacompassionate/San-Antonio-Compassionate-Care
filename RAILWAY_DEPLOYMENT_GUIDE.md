@@ -313,7 +313,9 @@ CORS_ORIGIN=https://sacompassionatecare.com
 
 **Database Variables (Copy from PostgreSQL service):**
 
-**Option 1: Direct Values (Your Actual Configuration):**
+### **Option 1: Direct Values (Quick Setup)**
+Use these exact values for immediate setup:
+
 ```env
 PGHOST=postgres.railway.internal
 PGPORT=5432
@@ -322,8 +324,60 @@ PGPASSWORD=xqkGKwoDHXfkjBvfyycIGPaYTlYmngMI
 PGDATABASE=railway
 ```
 
-**Option 2: Use Railway's Reference Variables (Recommended - Auto-updates):**
+**When to use:** Quick testing, local development, or if you prefer explicit values.
+
+---
+
+### **Option 2: Railway's Reference Variables (⭐ RECOMMENDED)**
+
+Reference variables are Railway's powerful feature that creates **live links** between services. Instead of copying static values, you reference them directly from the source service.
+
+#### **What are Reference Variables?**
+
+Reference variables use the syntax `${{ServiceName.VARIABLE_NAME}}` to dynamically link to another service's environment variables. When the source value changes, all services using the reference automatically get the updated value.
+
+#### **How to Set Up Reference Variables:**
+
+**Step 1: Identify Your PostgreSQL Service Name**
+1. Go to your Railway project dashboard
+2. Look at your PostgreSQL database service
+3. Note its name (default is usually "Postgres" or "PostgreSQL")
+4. You can rename it by clicking on the service → Settings → Name
+
+**Step 2: Add Reference Variables to Backend Service**
+1. Click on your **backend service** (Node.js app)
+2. Go to **"Variables"** tab
+3. Click **"+ New Variable"** for each of these:
+
+| Variable Name | Reference Value | Description |
+|--------------|----------------|-------------|
+| `PGHOST` | `${{Postgres.PGHOST}}` | Database hostname |
+| `PGPORT` | `${{Postgres.PGPORT}}` | Database port (5432) |
+| `PGUSER` | `${{Postgres.PGUSER}}` | Database username |
+| `PGPASSWORD` | `${{Postgres.PGPASSWORD}}` | Database password |
+| `PGDATABASE` | `${{Postgres.PGDATABASE}}` | Database name |
+
+**Step 3: Verify References**
+1. After adding all variables, you'll see them listed
+2. They will show as: `${{Postgres.PGHOST}}` (not the actual value)
+3. Railway resolves these at runtime automatically
+
+#### **Complete Configuration Example:**
+
+In your backend service Variables tab, add:
+
 ```env
+# Server Configuration
+NODE_ENV=production
+PORT=5000
+
+# JWT Secret (Generate your own secure token)
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production_12345_railway
+
+# CORS Origins (Your frontend URLs)
+CORS_ORIGIN=https://sacompassionatecare.com,https://www.sacompassionatecare.com,https://san-antonio-care.pages.dev
+
+# Database Connection (Reference Variables)
 PGHOST=${{Postgres.PGHOST}}
 PGPORT=${{Postgres.PGPORT}}
 PGUSER=${{Postgres.PGUSER}}
@@ -331,13 +385,63 @@ PGPASSWORD=${{Postgres.PGPASSWORD}}
 PGDATABASE=${{Postgres.PGDATABASE}}
 ```
 
-**How to get these values:**
-1. Click on your PostgreSQL service
-2. Go to **"Variables"** or **"Connect"** tab
-3. Copy the values shown there
-4. Paste them into your backend service Variables tab
+#### **⭐ Benefits of Reference Variables:**
 
-**Note:** Using reference variables (Option 2) is recommended as they automatically update if you regenerate database credentials.
+1. **Automatic Updates**: If you regenerate database credentials, all connected services update automatically
+2. **Security**: No need to copy/paste sensitive credentials between services
+3. **Single Source of Truth**: Database credentials only exist in one place
+4. **Service Linking**: Railway knows which services depend on each other
+5. **Environment Isolation**: Different environments can reference different databases
+6. **Reduced Errors**: No typos from manual copying
+7. **Easy Maintenance**: Change once, apply everywhere
+
+#### **Troubleshooting Reference Variables:**
+
+**Issue: "Service name not found"**
+- **Solution**: Ensure the service name matches exactly (case-sensitive)
+- Check your PostgreSQL service name in the dashboard
+- If renamed, use the new name: `${{YourCustomName.PGHOST}}`
+
+**Issue: "Variable not found"**
+- **Solution**: The PostgreSQL service must be deployed first
+- Ensure the PostgreSQL service has the variable you're referencing
+- Check the PostgreSQL service Variables tab to see available variables
+
+**Issue: "Connection refused" even with correct references**
+- **Solution**: Both services must be in the same Railway project
+- Check that services are deployed and running
+- View logs to see what values are being resolved
+
+#### **How to Verify Reference Variables are Working:**
+
+1. Deploy your backend service
+2. Go to **"Deployments"** → Latest deployment
+3. Click **"View Logs"**
+4. Look for database connection logs
+5. Railway will resolve references and show actual connection attempts
+
+**Example log output:**
+```
+Connecting to database at postgres.railway.internal:5432
+Database: railway
+User: postgres
+Connection successful!
+```
+
+#### **When to Use Each Option:**
+
+| Scenario | Recommended Option | Reason |
+|----------|-------------------|--------|
+| **Production Deployment** | Option 2 (References) | Auto-updates, secure, maintainable |
+| **Multiple Environments** | Option 2 (References) | Can reference different DBs per environment |
+| **Team Collaboration** | Option 2 (References) | No need to share credentials |
+| **Quick Testing** | Option 1 (Direct) | Faster to set up initially |
+| **Local Development** | Option 1 (Direct) | Copy to local .env file |
+| **Credential Rotation** | Option 2 (References) | Zero-downtime updates |
+
+---
+
+**💡 Pro Tip:** Start with Option 2 (Reference Variables) from the beginning. It takes just a few more minutes to set up but saves hours of maintenance later.
 
 ### Step 2.5: Setup Database Schema
 
