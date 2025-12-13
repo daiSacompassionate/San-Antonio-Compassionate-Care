@@ -14,7 +14,15 @@ async function initializeDatabase() {
         
         // Read schema.sql file
         const schemaPath = path.join(__dirname, '..', 'schema.sql');
+        console.log('📁 Schema path:', schemaPath);
+        
+        // Check if file exists
+        if (!fs.existsSync(schemaPath)) {
+            throw new Error(`Schema file not found at: ${schemaPath}`);
+        }
+        
         const schema = fs.readFileSync(schemaPath, 'utf8');
+        console.log('📋 Schema file loaded, size:', schema.length, 'bytes');
         
         // Execute schema
         await pool.query(schema);
@@ -22,7 +30,10 @@ async function initializeDatabase() {
         console.log('✅ Database schema initialized successfully');
         return true;
     } catch (error) {
-        console.error('❌ Error initializing database schema:', error.message);
+        console.error('❌ Error initializing database schema:');
+        console.error('   Error code:', error.code);
+        console.error('   Error message:', error.message);
+        console.error('   Full error:', error);
         
         // Don't exit process - tables might already exist
         // Log error but allow application to continue
