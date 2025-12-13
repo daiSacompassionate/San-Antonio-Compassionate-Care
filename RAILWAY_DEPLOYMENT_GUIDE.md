@@ -349,13 +349,27 @@ Reference variables use the syntax `${{ServiceName.VARIABLE_NAME}}` to dynamical
 2. Go to **"Variables"** tab
 3. Click **"+ New Variable"** for each of these:
 
+**⭐ Recommended Method - Use Railway's Computed Variables:**
+
 | Variable Name | Reference Value | Description |
 |--------------|----------------|-------------|
-| `PGHOST` | `${{Postgres.PGHOST}}` | Database hostname |
+| `PGHOST` | `${{Postgres.PGHOST}}` | Database hostname (computed from RAILWAY_PRIVATE_DOMAIN) |
 | `PGPORT` | `${{Postgres.PGPORT}}` | Database port (5432) |
-| `PGUSER` | `${{Postgres.PGUSER}}` | Database username |
-| `PGPASSWORD` | `${{Postgres.PGPASSWORD}}` | Database password |
-| `PGDATABASE` | `${{Postgres.PGDATABASE}}` | Database name |
+| `PGUSER` | `${{Postgres.PGUSER}}` | Database username (computed from POSTGRES_USER) |
+| `PGPASSWORD` | `${{Postgres.PGPASSWORD}}` | Database password (computed from POSTGRES_PASSWORD) |
+| `PGDATABASE` | `${{Postgres.PGDATABASE}}` | Database name (computed from POSTGRES_DB) |
+
+**Alternative Method - Reference Source Variables Directly:**
+
+| Variable Name | Reference Value | Description |
+|--------------|----------------|-------------|
+| `PGHOST` | `${{Postgres.RAILWAY_PRIVATE_DOMAIN}}` | Direct reference to private domain |
+| `PGPORT` | `5432` | Static port value |
+| `PGUSER` | `${{Postgres.POSTGRES_USER}}` | Direct reference to user |
+| `PGPASSWORD` | `${{Postgres.POSTGRES_PASSWORD}}` | Direct reference to password |
+| `PGDATABASE` | `${{Postgres.POSTGRES_DB}}` | Direct reference to database name |
+
+**💡 Which to Use?** Use the **Recommended Method** (first table) as Railway's PostgreSQL service already computes these standard PG* variables for you.
 
 **Step 3: Verify References**
 1. After adding all variables, you'll see them listed
@@ -377,13 +391,39 @@ JWT_SECRET=your_super_secret_jwt_key_change_this_in_production_12345_railway
 # CORS Origins (Your frontend URLs)
 CORS_ORIGIN=https://sacompassionatecare.com,https://www.sacompassionatecare.com,https://san-antonio-care.pages.dev
 
-# Database Connection (Reference Variables)
+# Database Connection (Reference Variables - Recommended)
 PGHOST=${{Postgres.PGHOST}}
 PGPORT=${{Postgres.PGPORT}}
 PGUSER=${{Postgres.PGUSER}}
 PGPASSWORD=${{Postgres.PGPASSWORD}}
 PGDATABASE=${{Postgres.PGDATABASE}}
+
+# Alternative: Reference Source Variables Directly
+# PGHOST=${{Postgres.RAILWAY_PRIVATE_DOMAIN}}
+# PGPORT=5432
+# PGUSER=${{Postgres.POSTGRES_USER}}
+# PGPASSWORD=${{Postgres.POSTGRES_PASSWORD}}
+# PGDATABASE=${{Postgres.POSTGRES_DB}}
 ```
+
+**Understanding Railway's PostgreSQL Variables:**
+
+Railway's PostgreSQL service provides two sets of variables:
+
+1. **Source Variables** (in Postgres service):
+   - `POSTGRES_USER` → "postgres"
+   - `POSTGRES_PASSWORD` → (your password)
+   - `POSTGRES_DB` → "railway"
+   - `RAILWAY_PRIVATE_DOMAIN` → "postgres.railway.internal"
+
+2. **Computed Variables** (in Postgres service):
+   - `PGUSER` → `${{POSTGRES_USER}}`
+   - `PGPASSWORD` → `${{POSTGRES_PASSWORD}}`
+   - `PGDATABASE` → `${{POSTGRES_DB}}`
+   - `PGHOST` → `${{RAILWAY_PRIVATE_DOMAIN}}`
+   - `PGPORT` → "5432"
+
+When you reference from your backend, you can use either set, but the **computed PG* variables are recommended** as they follow standard PostgreSQL naming conventions.
 
 #### **⭐ Benefits of Reference Variables:**
 
