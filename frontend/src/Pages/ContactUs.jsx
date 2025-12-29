@@ -102,8 +102,8 @@ const ContactUs = () => {
     ];
 
     const socialLinks = [
-        { icon: <FaFacebook />, name: "Facebook", color: "hover:bg-blue-600", href: "#" },
-        { icon: <FaInstagram />, name: "Instagram", color: "hover:bg-pink-600", href: "#" },
+        { icon: <FaFacebook />, name: "Facebook", color: "hover:bg-blue-600", href: "https://www.facebook.com/profile.php?id=61585160324103" },
+        { icon: <FaInstagram />, name: "Instagram", color: "hover:bg-pink-600", href: "https://www.instagram.com/sanantoniocompassionatecare?igsh=dWxsdGhmanZleGNz" },
         { icon: <FaTiktok />, name: "TikTok", color: "hover:bg-gray-900", href: "#" }
     ];
 
@@ -337,6 +337,8 @@ const ContactUs = () => {
                                     <a
                                         key={index}
                                         href={social.href}
+                                        target={social.href !== "#" ? "_blank" : undefined}
+                                        rel={social.href !== "#" ? "noopener noreferrer" : undefined}
                                         className={`w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm ${social.color} text-white flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110 hover:bg-white/30 shadow-lg`}
                                         aria-label={social.name}
                                     >
@@ -379,4 +381,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-

@@ -116,7 +116,9 @@ const Footer = () => {
 
                         <div className="flex space-x-3 xs:space-x-4">
                             <a
-                                href="#"
+                                href="https://www.facebook.com/profile.php?id=61585160324103"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 xs:w-12 h-10 xs:h-12 bg-amber-200/90 hover:bg-amber-200 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
                                 aria-label="Facebook"
                             >
@@ -124,7 +126,9 @@ const Footer = () => {
                             </a>
 
                             <a
-                                href="#"
+                                href="https://www.instagram.com/sanantoniocompassionatecare?igsh=dWxsdGhmanZleGNz"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-10 xs:w-12 h-10 xs:h-12 bg-amber-200/90 hover:bg-amber-200 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
                                 aria-label="Instagram"
                             >
@@ -145,6 +149,8 @@ const Footer = () => {
                         {/* Copyright */}
                         <p className="text-gray-400 text-xs xs:text-sm text-center sm:text-left">
                             © {new Date().getFullYear()} San Antonio Compassionate Care. All rights reserved.
+                            <span className="mx-2">•</span>
+                            <span className="text-amber-200">Powered by Bloomtech USA LLC.</span>
                         </p>
 
                         {/* LOGIN BUTTON */}

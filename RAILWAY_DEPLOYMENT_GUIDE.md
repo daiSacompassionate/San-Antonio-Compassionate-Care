@@ -561,7 +561,7 @@ OR run seed manually using Railway's terminal.
 3. Once deployed, click **"View Logs"** to verify no errors
 4. Go to **"Settings"** → **"Networking"**
 5. Click **"Generate Domain"** to get your backend URL
-6. Copy the URL (e.g., `https://your-app.up.railway.app`)
+6. Copy the URL (e.g., `san-antonio-compassionate-care-production.up.railway.app`)
 
 ### Step 2.8: Test Backend
 
@@ -616,7 +616,7 @@ If you want to use sacompassionatecare.com:
 **Environment Variables:**
 Add this variable:
 ```
-VITE_BACKEND_URL=https://your-railway-backend.up.railway.app/api
+VITE_BACKEND_URL=https://san-antonio-compassionate-care-production.up.railway.app/api
 ```
 (Replace with your Railway backend URL from Step 2.7)
 
