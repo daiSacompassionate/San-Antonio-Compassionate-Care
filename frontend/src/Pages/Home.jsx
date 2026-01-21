@@ -48,7 +48,7 @@ const Home = () => {
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 0.4 }}
                             >
-                                At San Antonio Compassinate care, we believe life should be lived with comfort, dignity, and joy—no matter the age. Our community in Pflugerville offers the perfect blend of support, independence, and warmth that truly feels like home.
+                                At San Antonio Compassinate care, we believe life should be lived with comfort, dignity, and joy—no matter the age. Our community in San Antonio offers the perfect blend of support, independence, and warmth that truly feels like home.
                             </motion.p>
 
                             {/* Interactive Elements / CTAs */}
